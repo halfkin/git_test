@@ -1,0 +1,55 @@
+The Odin Project Git Notes -- in VMWare
+
+``` GIT NOTES ```
+ 
+                   -   -  - GIT BACKGROUND INFO -  -   -
+
+- Git is a version control system
++ Meaning, Git will keep a historical record of a file, all of it changes and versions. 
++ Using Git will allow us to backtrack and restore from an older file, should anything go wrong in the coding.
++ Git also pushes versions and differences in files to GitHub.
++ Git is a local VCS, while GitHub is remote (cloud). Others can access your files on GitHub and can collaborate on that same coin.
+++ Git + GitHub is an essential skill for software programmers. 
++ Git is a Distributed Version Control System, meaning that the versions of your file are kept on the local side, and on a remote database.
++ Git takes snapshots of when a file is changed, and doesnt take a snapshot if there was no changes made. 
++ Since Git keeps a local database, youre able to work offline, and it mitigates the risk of a server crashing, and not being able to access your database. 
++ The 40 character hexadecimal string is called a SHA-1 hash values.
++ Git only adds data, so if we were to go in and delete stuff from a file, it will create a new snapshot with that new subtraction, it will not delete the stuff from the file that we edited. In other words, Git is mostly non destructive.
++ The CMD line is the only place that you have full access to all of Git's commands.
++ Git helps you log what changes you made, why you did it and when you made them.
++ Is useful for group projects, so you can see who made what changes and why, all of these files are held in a repository and are able to merge them all into one file. 
++
+
+                     -   -  - Git File States -  -   -
+
++ Git has three file states, those being: Modified, Staged, and Committed. 
+++ Modified: Means that a file has been modified, but hasnt been committed to the database yet.
+++ Staged: Means that you marked a Modified file in its current state to go into your next commit snapshot.
+++ Committed: Means that the data is safely stored within your database.
++++ In other words, Modfied is when you're editing a file, then you Stage it to be sent to the database to be Committed, once its Committed then its looped back to the database. 
+
+                     -   -  - Git Quiz Questions -  -   -
+
+- Git is a Version Control System
+- Git records snapshots, changes and information in a compressed format, text editor will keep the same file, while overwriting changes.
+- Git works at a local level
+- GitHub works at a remote level
+-Git is useful for an individual developer because it will record all of the changed to a project in a non-destructive way. 
+- Git and GitHub allows a team of developers to 1. collaborate on a project, while simultaneously recording their changes, who made the changes and why on a local and remote level and they can merge code together.
+
+                    -   -  - Git Quiz Questions #2 -  -   -
+
+- git clone <repo link> <local location> 
+- git status
+- git add to track files.
+- git commit -A
+- git log
+- git push <remote repo> <branch>
+- git will show what is modified, then needs to be staged to commit the changes.
+- origin is the repo name
+- main is the master branch
+
+                 -   -  - Git Basics [Basic Workflow] -  -   -
+
+
+

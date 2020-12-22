@@ -1,0 +1,155 @@
+The Odin Project Terminal Notes -- in VMWare
+
+``` TERMINAL COMMANDS -N- NOTES ```
+
+COMMANDS:
+
+- $ is telling the terminal what to do, stays within the terminal at all times, not necessary to write it
+
+                     -    -  - Creating Files -  -   -
+
+- (create file) touch command: with examplefile.txt following will create a file named examplefile.txt to a certain directory. Will work with many different formats. In the TOP example, we can create: index.html, script.js, and style.css
+
+              -   -  - Displaying Contents of Directory -  -   -
+
+- (list files) ls command: will show the files in the current directory. 
++ Using $ls /home/hk/directoryhere, will show the files in the indicated directory
++ Adding the -a flag to $ls will show all files, including hidden or invisible directories.
++ Adding the -l flag to $ls will show all files in longform.
+
+           * * Following flags can be used with a or without l * *
+
++ Adding the -lh flag to $ls will show all files in Human Readble Form (1700b -> 1.7kb)
++ Adding the -lhS (capital) flag to $ls will show all files sorted by size.
++ Adding the -lt flag to $ls will show the files by Last Modified Time.
++ Adding the -lr flag to $ls will show the files in reverse order.
+
+                        -   -  - Links -  -   -
+
+- (Links) ln command: will create an association that points from one file or directory to another. In any case, something would point to a link, that can be changed. So if there's a web application that has constantly changing code, you could point it to the link, that will constantly update. Links can be either 'hard' or 'symbolic'.
+
++ (Hard Links) ln a.file b.file: will create a hard link between two files (no directories), by creating a copy of file a. For example, after creating a hard link, whenever you were to change file a, file b would also reflect those changes. a.file is the origin file and b.file is the name of the new hard link file. **Only works on same file system | if link is severed (origin file is deleted) the copy file will still live as an independant file**
+
++ (Forcing a Link) ln -f a.file b.file: if b.file already exist, you will get an error when trying to hard link. By adding the -f flag you can force a link between the two. 
+
++ (Symbolic Links | symlinks) ln -s a.file b.file: Symbolic links can create a link between directories and files, can also link directories/files on other file systems. 
+
+                       -   -  - Navigation -  -   -
+
+- (Change Directories) cd ~/DirectoryHere: will navigate the terminal to a new directory. 
+
++ (Navigating Up a Directory) cd .. : will cause the terminal to move to the parent directory of the current directory.
+
++ (Navigating to the Home Directory) cd : will cause the terminal to move to the home directory. cd is written without any arguments. 
+
++ (Present Working Directory) pwd command: will tell you where you currently are in the directory within the terminal. 
+++ Adding the -P (capital) flag to pwd will show the actual phyical location, instead of using symlinked files.
+
+                 -   -  - Creating Directories -  -   -
+
+- (Making a Directory) mkdir DirectoryName: will create a directory with the specified name.
+
++ (Making an Intermediate Directory) mkdir -p Directory1/Directory2(new): will create a nested directory within another. -p stands for path, so if neither directory exists, it will create both.
+
++ (Verbose Output) mkdir -v DirectoryHere: will show exactly what mkdir did.
+
+                   -   -  - Copying Files -  -   - 
+
+- (Copying a Single File) cp a.file b.file: will copy a file. a.file is the source file, and b.file is the destination/copy of the file. Will create a copy of a.file in the same directory. 
+
++ (Copying Multiple Files) cp a.file b.file DirectoryHere: will copy a.file and b.file to the specified directory. By doing *.filetype you can tell the terminal to copy all files of that type to a certain directory.
+
++ (Verbose Output) cp -v a.file b.file: will tell you exactly what the cp command did. Ex a.file->b.file indicates that a.file was copied as b.file.
+
++ (Copying Directories) cp -R Directory1 Directory2: will copy all of the files in Directory1 to a new directory named Directory2 
+
++ (Force Overwriting Files) cp -f a.file b.file: sometimes when a file belongs to another user, we cannot overwrite it with the regular cp command, instead we add the -f flag to force overwrite the destination file.
+
++ (Confirm Overwriting Prompt) cp -i a.file b.file: by adding the -i flag we can have the Terminal ask us if we want to overwrite the file. Answer with a simple y/n. 
+
+                     -   -  - Deleting Files -  -   -
+
+- (Remove Object | Verbose) rm -v filename: will remove files, directories, symbolic links, etc.. and show exactly what happened. 
+
++ (Remove Directory with Files in it) rm -ir DirectoryName / rmdir DirectoryName: will delete directory while asking you for confirmation.
+
+                      -   -  - Moving Files -  -   -           
+
+- (Moving Files) mv -v a.file b.file: will copy and delete a file, essentially moving it. Supports the same flags as the cp command.
+
+                      -   -  - Input/Output -  -   -    
+
+- (Redirecting Output/Pipe) command1 | command2: | will direct command1 to command2 right after, the pipe is signified as '|'
+
++ (Writing to a File) command1 | command2 > result.txt: will write the result of the previous command to a file.
+
++ (Reading of a File) <: will read a file.
+
+                           -   -  - GIT -  -   -
+
+
+
+!! IMPORTANT NOTES !!: 
+
+- The home directory is where the Desktop, downloads, documents, etc are stored. The example files created are housed there. 
+- GitHub SSH key located at ~/.ssh/key.pub
+
+                -   -  - QOL/Workflow Shortcuts -  -   -
+
+- (Pasting code) Ctrl + Shift + V.
+
+- (Tab Completion) By pressing [TAB] the Terminal will complete what it thinks you're writing. Sort of like auto correct on iPhone. If I'm trying to get into the ~/Testing/aaaa/opopop I would write Tes [TAB] aa [TAB] opop [TAB]. You have to give the Terminal enough context to know what you're trying to access. 
+
+- (Open All Files in Directory) ' . ' [period] indicates all files in a directory.
+
+- (Opening VS Studio Via Cmd Line) code filename.file: Opens up the filename.file in VS Studio. Can be accompanied with ' . ' to open all files in a directory.
+
+             -   -  - Git Basic Workflow Commands -  -   -
+
+- (Getting help) git help <verb> ie.. config, add, etc..: will display the different ways you can use that verb/command. Can also be denoted like 
+git <verb> --help.
+
+- (Initialize a Repo from Existing File) git init: will place a .git file at whatever location the terminal is currently in. The .git directory contains everything related to the repo.
+
++ (Removing .git Directory) rm -rf <.git directory.
+
+- (Finding .git Status) git status: will display what is committed and what isn't.
+
+- (Ignoring Files in Repository) touch .gitignore -> Open in text editor -> .DS_Store -> <file to be ignored> -> <sub-files to be  ignored>: will make sure that the specified file will not be uploaded to your Git directory and in extension, your GitHub repository. Must commit .gitignore for it to ignore the files.
+
+- (Adding Files to Staging Area) git add <file> or -A for everything: will place files into the staging area. 
+
+- (Removing Files from Staging Area) git reset <file>: will boot staged files back to the Working Directory. Leaving the <file> out will reset all of the files in directory.
+
+- (Committing changes) git commit -m "message/notes here": will commit everything within the staging area. Be careful when doing this as itll attach the message to all of the files, will have to do individually if you wanted to add different messages to different file versions. 
+
+- (Commit Log) git log: will show a detailed log of what commits were made including the messages. 
+
+- (Cloning a Remote Repo to Local Machine) git clone <url> <where to clone> | If on local machine: git clone <path of cloned repo> <path of where it gets cloned to>
+
+- (Viewing Information About Remote Repo) git remote -v: will list the location of local repo and where its being pushed (remote repo) | git branch -a: will list all of the branches within the repository.
+
+- (Show Changes Made to Code) git diff <file>: will show a log of everything changed within the code.
+
+- (Pulling Files from Remote Repository) git pull <remote repo name> <branch name>: will grab any changes made to code on remote repository 
+
++ (Pushing Files to Remote Repository) git push <remote repo name> <branch name to push to>: will push the changes to the remote repository.
+
+- (Creating a Branch) git branch <name of branch>: will create a branch, if no name is typed in it will show all of the branches in repo.
+
++ (Selecting Branch to Work in) git checkout 'branch name': will select a branch that you would like to work in.
+
++ (Pushing Branch to Remote Repo) git push -u <repo name> <branch name>: will push a branch to remote repo. -u will tell git that we wanna associate our local branch with the remote branch, so we no longer need to specify where we're pushing and pulling from.
+
++ (Merging a Branch with Master) git checkout <master branch> -> git pull <repo name> <master branch> -> git branch --merged (tells you what is merged w branch) -> git merge <branch to merge with master> -> git push <repo name> <master branch in remote repo>.
+
++ (Deleting a Branch) git branch -d <branch to be deleted> (for local). git push <repo> --delete <remote branch to be deleted> (for remote): will completely remove a branch from either local or remote.
+
+                 -   -  - GIT MOST COMMONLY USED CMD CHEATSHEET -  -   -
+
+- (Cloning Remote Repo) git clone git@github.com:USER-NAME/REPOSITORY-NAME.git or git clone https://github.com/user-name/repository-name.git.
+
++ (Pushing Changes to Remote Repo) git push <repo name> <branch name>
+
+
+
